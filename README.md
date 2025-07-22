@@ -2,6 +2,14 @@
 
 A production-ready example of a multi-tenant application built with Next.js 15, featuring custom subdomains for each tenant.
 
+## TL;DR for Developers
+
+**What**: Subdomain-based multi-tenant app where each tenant gets `tenant.domain.com`  
+**How**: `middleware.ts` extracts subdomain → rewrites to `/s/[subdomain]` → Redis lookup → render tenant page  
+**Key Files**: `middleware.ts` (routing), `lib/subdomains.ts` (Redis ops), `app/s/[subdomain]/page.tsx` (tenant pages)  
+**Local Dev**: Use `tenant.localhost:3000` URLs, no hosts file needed  
+**Stack**: Next.js 15 App Router + Redis + Server Actions + Tailwind 4 + shadcn/ui
+
 ## Features
 
 - ✅ Custom subdomain routing with Next.js middleware
